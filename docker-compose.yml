@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount your chosen run directory read-only into the container.
+      # Change the host-side path to whichever run you want to serve.
+      - ./runs/resnet18_20260923_023010_49ec6d:/app/model:ro
+    environment:
+      - MODEL_DIR=/app/model
